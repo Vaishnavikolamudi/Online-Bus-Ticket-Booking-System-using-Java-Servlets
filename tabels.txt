@@ -1,0 +1,112 @@
+create database BusTicketBooking;
+use BusTicketBooking;
+create table  login(uname varchar(50), pwd varchar(50),grp varchar(50));
+insert into login values('a@g.com','a','Admin');
+
+	
+create table ureg(nam varchar(50), gender varchar(50),mobile varchar(50),email varchar(50),pwd varchar(50));
+
+CREATE TABLE BUSMASTER (BUSID VARCHAR(10),BNAME VARCHAR(10),
+FROMS VARCHAR(10),TOO VARCHAR(10),DEPTTIME VARCHAR(10),ARRTIME VARCHAR(10)
+,DIST VARCHAR(10),FARE VARCHAR(10),TSEATS VARCHAR(10),BOOKED VARCHAR(10),AVAILABLE VARCHAR(10),DOJ VARCHAR(25));
+
+
+INSERT INTO BUSMASTER VALUES('1','A','BLORE','MANGALORE','7:00','13:00','380','800','25','0','25','2019-06-18');
+
+INSERT INTO BUSMASTER VALUES('2','B','BLORE','MUMBAI','7:00','13:00','999','1600','25','0','25','2019-06-18');
+
+create table busmasterlayout(busid varchar(100),seatno varchar(100),status varchar(100));
+insert into busmasterlayout values('1','1','A');
+insert into busmasterlayout values('1','2','A');
+insert into busmasterlayout values('1','3','A');
+insert into busmasterlayout values('1','4','A');
+insert into busmasterlayout values('1','5','A');
+insert into busmasterlayout values('1','6','A');
+insert into busmasterlayout values('1','7','A');
+insert into busmasterlayout values('1','8','A');
+insert into busmasterlayout values('1','9','A');
+insert into busmasterlayout values('1','10','A');
+insert into busmasterlayout values('1','11','A');
+insert into busmasterlayout values('1','12','A');
+insert into busmasterlayout values('1','13','A');
+insert into busmasterlayout values('1','14','A');
+insert into busmasterlayout values('1','15','A');
+insert into busmasterlayout values('1','16','A');
+insert into busmasterlayout values('1','17','A');
+insert into busmasterlayout values('1','18','A');
+insert into busmasterlayout values('1','19','A');
+insert into busmasterlayout values('1','20','A');
+insert into busmasterlayout values('1','21','A');
+insert into busmasterlayout values('1','22','A');
+insert into busmasterlayout values('1','23','A');
+insert into busmasterlayout values('1','24','A');
+
+
+
+create table seatcart(seatno varchar(10));
+
+
+
+create table booking1(bid varchar(50),bdate varchar(100),frm varchar(100),too varchar(100),notkt varchar(50),
+totamt varchar(10),doj varchar(10),uname varchar(100),seats varchar(100),busno varchar(100),status varchar(100));
+
+
+create table booking2(bid varchar(50), pname varchar(150),age varchar(100),
+gen varchar(110),uname varchar(110));
+
+
+create table contract(frm varchar(100),too varchar(100),dotra varchar(100),doret varchar(100),akilo varchar(100),mob varchar(100),name varchar(100));
+
+
+
+
+create table card(cardtype varchar(50), cardbenefiary varchar(50),cardcriteria varchar(50),cardlimit varchar(50));
+
+create table branchuser(fnam varchar(50),mnam varchar(50),lnam varchar(50),address varchar(50),gender varchar(50),dob varchar(50),desig varchar(50),usrname varchar(50),password varchar(50),emailid varchar(50));
+
+create table citizen(citizenid varchar(50),fnam varchar(50),mnam varchar(50),
+lnam varchar(50),
+address varchar(50),
+gender varchar(50),
+dob varchar(50),
+phone varchar(50),
+emailid varchar(50),
+rationcardno varchar(50),
+aadharcard varchar(50),
+voterid varchar(50),
+noofdep varchar(50),
+photo varchar(100),
+cardtype varchar(50),
+distr varchar(50),
+states varchar(50),
+issued varchar(50),
+dates varchar(100));
+
+create table dependents(fnam varchar(50),mnam varchar(50),lnam varchar(50),age varchar(50),gender varchar(50),dob varchar(50),relationship varchar(50),voterid varchar(50),aadharcard varchar(50),photo varchar(100),citizenid varchar(10));
+
+create table cardissue(cardno varchar(50),dateofissue varchar(50),citizenid varchar(50),amountdispatched varchar(50),bankname varchar(50),baccountno varchar(50),addressofbank varchar(50));
+
+create table fback(name varchar(50),ph varchar(50),semail varchar(50), feedback varchar(50));
+
+
+
+
+create table registerhospital(hospitalname varchar(50),address varchar(50),phone varchar(50),emailid varchar(50),website varchar(50),contactperson varchar(50));
+
+
+delete from citizen;
+delete from dependents;
+
+commit;
+select citizenid from citizen;
+select citizenid from dependents;
+
+insert into login values('a','a','Admin');
+
+create table blockcard(cardid varchar(50),status varchar(10));
+
+
+create table reissuecard(cardid varchar(50),citizenid varchar(10));
+
+
+

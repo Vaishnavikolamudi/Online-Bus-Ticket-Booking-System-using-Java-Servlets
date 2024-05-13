@@ -1,0 +1,121 @@
+<%@ page import="java.io.*,java.sql.*,java.util.*,java.util.Properties,java.util.Date,java.net.InetAddress,javax.mail.*,javax.mail.internet.*,javax.activation.*"%>
+
+<%
+
+try
+{
+
+
+	
+	String bid=request.getParameter("bid").trim();
+	String pname=request.getParameter("pname").trim();
+	String not=request.getParameter("not").trim();
+	String cno=request.getParameter("cno").trim();
+	String doe=request.getParameter("doe").trim();
+
+	
+	
+
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+Connection conn = DriverManager.getConnection("Jdbc:Odbc:bus","bus","bus");
+
+		ResultSet rs;
+		
+		
+
+Statement st=conn.createStatement();
+		
+			
+		String sql="select * from busmaster"; 
+			rs=st.executeQuery(sql);
+			int found1=0;
+			
+			while(rs.next())
+			{
+			
+				String mbid=rs.getString(1).trim();
+			//	out.print(username+","+muname);
+				if (mbid.equals(bid))
+				{
+					found1=1;
+					break;
+				}
+				
+				
+			}
+			
+			
+		//out.println(found1);
+			
+	if (found1==1)
+		{
+			
+		sql="select * from cdmaster"; 
+			rs1=st.executeQuery(sql);
+			int found2=0;
+			
+			while(rs1.next())
+			{
+			
+				String mcno=rs1.getString(1).trim();
+				String mdoe=rs1.getString(2).trim();
+			//	out.print(username+","+muname);
+				if (mcno.equals(cno) && mdoe.equals(doe))
+				{
+					found2=1;
+					break;
+				}
+				
+				
+			}
+			
+			if(found2==1)
+			{
+			
+		/*PreparedStatement pstmt;
+			 
+			 
+
+		pstmt=conn.prepareStatement("insert into ureg values(?,?,?,?,?)");
+				
+			
+			pstmt.setString(1,fname);
+			pstmt.setString(2,address);
+			pstmt.setString(4,username);
+			pstmt.setString(5,password);
+			pstmt.setString(3,email);
+
+					
+			pstmt.executeUpdate();
+
+*/
+
+		out.println("<h1 align=center> Submitted Sucessfully</h1>");
+
+//out.println("<h2 align=center><a href=http://localhost:8080/bus/branchuser.html>Back</a></h2>");	
+	
+			}
+			else
+			{
+			
+			out.println("<h1 align=center> Sorry Invalid card details  </h1>");
+
+		//out.println("<h2 align=center><a href=http://localhost:8080/padmasri/branchuser.html>Back</a></h2>");	
+			
+			}
+			
+	}
+	else
+	{
+			out.println("<h1 align=center> Sorry Invalid Bus id  </h1>");
+	}
+
+
+}
+       catch(Exception e)
+             {
+             		out.print(e);
+             	
+             }
+            
+%>
